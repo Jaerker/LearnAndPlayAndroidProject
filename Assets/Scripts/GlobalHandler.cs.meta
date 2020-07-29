@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 61845478b70d46d44a118fc0b2603a9e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - correctSound: {fileID: 8300000, guid: 5ce56434c0ffeca48bd80226ef84b3c8, type: 3}
+  - wrongSound: {fileID: 8300000, guid: c220021aaf436e94fb175786ce20f3d7, type: 3}
+  - startingGameSound: {fileID: 8300000, guid: 2a6974beb04c9b641bd6455f69c78ce1, type: 3}
+  - startingSmallGameSound: {fileID: 8300000, guid: c74e7f06466ada340a5e38b72bbcc834,
+      type: 3}
+  - selectSound: {fileID: 8300000, guid: f5829ce76f09955439d1fabd28cd51d1, type: 3}
+  - gameEndedSound: {fileID: 8300000, guid: 0008fdb378ee27945ae4374d6e6608e7, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

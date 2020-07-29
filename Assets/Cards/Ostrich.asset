@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4841cda3691cba94686f0429603cf720, type: 3}
+  m_Name: Ostrich
+  m_EditorClassIdentifier: 
+  name: Struts
+  animalType: bird
+  animalTypeID: 11
+  legs: 2
+  isFlying: 0
+  animalColor: blackwhite
+  animalSprite: {fileID: 21300000, guid: 21b0112b31f137946aba8222061541a5, type: 3}

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4841cda3691cba94686f0429603cf720, type: 3}
   m_Name: Turtle
   m_EditorClassIdentifier: 
-  name: "Sk\xF6ld padda"
+  name: "Sk\xF6ldpadda"
+  nameEnglish: Turtle
   animalType: turtle
   animalTypeID: 23
   legs: 4

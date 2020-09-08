@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Dog1
   m_EditorClassIdentifier: 
   name: Hund
+  nameEnglish: Dog
   animalType: dog
   animalTypeID: 6
   legs: 4

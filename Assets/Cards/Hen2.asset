@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hen2
   m_EditorClassIdentifier: 
   name: "H\xF6na"
+  nameEnglish: Hen
   animalType: bird
   animalTypeID: 11
   legs: 2

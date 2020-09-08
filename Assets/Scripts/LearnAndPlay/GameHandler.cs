@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameHandler : MonoBehaviour
@@ -11,8 +12,19 @@ public class GameHandler : MonoBehaviour
 
     public Button[] buttons;
 
+    //Korten på skärmen
     public CardDisplay[] cardsOnScreen;
-    //gc is GameCanvas
+
+    //Kort som kommer flippas på ett helt varv
+    private CardDisplay correctCard;
+
+    //rotationshastighet på kortet
+    public float rotationSpeed;
+    private bool rotateCard = false;
+    private bool delayCheckOnCard = false;
+    Quaternion firstStance;
+
+    //gc är gameCanvas
     public TextMeshProUGUI fails;
     private int failedTimes;
 
@@ -21,28 +33,42 @@ public class GameHandler : MonoBehaviour
     public TextMeshProUGUI TimerText;
     private float timer;
     private float rightAnswer;
-    private bool isRunningTimer = true;
+    private bool isRunningTimer = false;
     private int newRound = 1;
 
 
-    //sc is ScoreCanvas
+    //sc är scoreCanvas
     public TextMeshProUGUI sc_t_points;
     public TextMeshProUGUI sc_t_scoreGreeting;
 
 
-    public Canvas GameCanvas;
-    public Canvas ScoreCanvas;
+    public Canvas gameCanvas;
+    public Canvas scoreCanvas;
+    public Canvas countdownCanvas;
 
+    //Kopplat till ljud
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
+    public AudioClip regularButtonSound;
+    public AudioClip puzzleSolvedSound;
+
+
+    //variabler till countdownCanvas
+    public TextMeshProUGUI countdownText;
+    private int countdown = -1;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = 10.0f;
-        GameCanvas.enabled = true;
-        ScoreCanvas.enabled = false;
-        ChangeCards();
+        StartCoroutine(StartNewGame(1f));
 
+    }
+
+    //Ljud metoden, enkel funktion som tar in ett audioclip bara
+    public void PlaySound(AudioClip ac)
+    {
+        AudioSource.PlayClipAtPoint(ac, Camera.main.transform.position);
     }
 
 
@@ -88,8 +114,8 @@ public class GameHandler : MonoBehaviour
     public void PressCard(CardDisplay cd)
     {
         newRound++;
-
-        foreach( Button b in buttons)
+        delayCheckOnCard = false;
+        foreach ( Button b in buttons)
         {
             b.enabled = false;
         }
@@ -101,8 +127,17 @@ public class GameHandler : MonoBehaviour
         }
         if(checker == 1)
         {
-            Debug.Log("You found the right choice");
+            
+            //Debug.Log("You found the right choice");
             points++;
+            if(points % 10 == 0)
+            {
+                PlaySound(puzzleSolvedSound);
+            }
+            else
+            {
+                PlaySound(correctSound);
+            }
             cd.ps.Play();
             rightAnswer = 2f / (float.Parse(newRound.ToString()) * 0.15f);
             if (rightAnswer >= 1.5f)
@@ -118,18 +153,25 @@ public class GameHandler : MonoBehaviour
                 
                 timer += rightAnswer;
             }
-            Debug.Log(rightAnswer.ToString());
+            //Sätter rätt kort som ska snurras på när man får ett rätt svar
+            correctCard = cd;
+            //Detta aktiverar vad som ska hända i Fixed Update nedan
+            rotateCard = true;
+            
+
+            //Debug.Log(rightAnswer.ToString());
 
         }
         else
         {
-            Debug.Log("You got it wrong");
+            PlaySound(wrongSound);
+            //Debug.Log("You got it wrong");
             fails.text += "X";
             failedTimes++;
         }
 
 
-        StartCoroutine(PressingButtonAction(1f, cd));
+        StartCoroutine(PressingButtonAction(0.5f, cd));
 
 
 
@@ -138,24 +180,25 @@ public class GameHandler : MonoBehaviour
     //Ändrar vilken Canvas som ska vara synlig
     public void FlipCanvases()
     {
-        if (GameCanvas.enabled)
+        if (gameCanvas.enabled)
         {
             sc_t_scoreGreeting.text = "Såhär långt kom du!";
 
             sc_t_points.text = "Poäng: " + points.ToString();
             failedTimes = 0;
             points = 0;
-            GameCanvas.enabled = false;
-            ScoreCanvas.enabled = true;
+            gameCanvas.enabled = false;
+            scoreCanvas.enabled = true;
             isRunningTimer = false;
             timer = 10f;
             newRound = 1;
         }
         else
         {
-            GameCanvas.enabled = true;
-            ScoreCanvas.enabled = false;
-            isRunningTimer = true;
+            gameCanvas.enabled = false;
+            scoreCanvas.enabled = false;
+            countdownCanvas.enabled = true;
+            StartCoroutine(StartNewGame(1f));
 
         }
         fails.text = "";
@@ -199,7 +242,7 @@ public class GameHandler : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         gc_t_points.text = "Poäng: " + points.ToString();
         if (isRunningTimer)
@@ -212,7 +255,87 @@ public class GameHandler : MonoBehaviour
             isRunningTimer = false;
             StartCoroutine(LostByTime(1f));   
         }
+
+
+
+        if (rotateCard)
+        {
+            correctCard.transform.Rotate(new Vector3(0f, 10f, 0f), rotationSpeed);
+            
+            
+            if(correctCard.transform.rotation.y >= -1f && correctCard.transform.rotation.y <= 1f)
+            {
+                if (delayCheckOnCard)
+                {
+                    
+                    correctCard.transform.rotation = firstStance;
+                    rotateCard = false;
+                    
+                }
+            }
+            StartCoroutine(ShortDelayOnCard());
+        }
+
     }
+
+    /*
+     * Kommer köras tills countdown värdet är nere på 0, då kommer spelet köras igång. 
+     */
+    IEnumerator StartNewGame(float time)
+    {
+
+        gameCanvas.enabled = false;
+        scoreCanvas.enabled = false;
+        countdownCanvas.enabled = true;
+
+        //Countdown värdet är alltid -1 när den lämnat hela processen, därav så ser vi till att countdown canvas blir tillgänglig här.
+        if (countdown == -1)
+        {
+
+            countdown = 3;
+            
+        }
+        countdownText.text = countdown.ToString();
+        Debug.Log(countdown);
+        yield return new WaitForSeconds(time);
+        
+        countdown -= 1;
+        if (countdown != 0)
+        {
+            StartCoroutine(StartNewGame(1f));
+        }
+        else if (countdown == 0)
+        {
+            //Här startar hela spelet om
+            
+            //Ser till att rätt Canvas är igång och att Timern sätts igång.
+            gameCanvas.enabled = true;
+            scoreCanvas.enabled = false;
+            countdownCanvas.enabled = false;
+            isRunningTimer = true;
+            timer = 10.0f;
+            countdown = -1;
+            ChangeCards();
+            firstStance = cardsOnScreen[0].transform.rotation;
+            
+            
+
+
+            
+            
+        }
+        
+        yield break;
+
+    }
+
+    IEnumerator ShortDelayOnCard()
+    {
+        yield return new WaitForSeconds(0.5f);
+        
+        delayCheckOnCard = true;
+    }
+
 
 
 

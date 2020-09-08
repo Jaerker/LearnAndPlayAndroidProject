@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Spider2
   m_EditorClassIdentifier: 
   name: Spindel
+  nameEnglish: Spider
   animalType: spider
   animalTypeID: 21
   legs: 8

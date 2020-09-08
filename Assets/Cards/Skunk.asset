@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Skunk
   m_EditorClassIdentifier: 
   name: Skunk
+  nameEnglish: Skunk
   animalType: skunk
   animalTypeID: 18
   legs: 4

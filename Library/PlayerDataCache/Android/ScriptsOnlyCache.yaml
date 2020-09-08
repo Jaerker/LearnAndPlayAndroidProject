@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - IntroScript
     - MyTweenScript
     - ReflexGameHandler
+    - fadeAnimator
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -19,10 +20,18 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
-    - TMPro.TMP_SubMeshUI
     - TMPro.TextMeshProUGUI
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -33,24 +42,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Mask
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.ScrollRect
-    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Slider
   sceneClasses:
-    Assets/Scenes/HighscoreScene.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
     Assets/Scenes/IntroScreen.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -66,7 +59,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -75,11 +76,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9700}
     - Class: 114
-      Script: {instanceID: 9870}
-    - Class: 114
       Script: {instanceID: 9910}
-    - Class: 114
-      Script: {instanceID: 10140}
     - Class: 114
       Script: {instanceID: 10168}
     - Class: 114
@@ -114,6 +111,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11636}
     - Class: 114
       Script: {instanceID: 11664}
+    - Class: 114
+      Script: {instanceID: 20890}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -145,7 +144,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -160,6 +167,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10724}
     - Class: 114
+      Script: {instanceID: 10744}
+    - Class: 114
       Script: {instanceID: 10952}
     - Class: 114
       Script: {instanceID: 11064}
@@ -171,6 +180,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11218}
     - Class: 114
       Script: {instanceID: 11598}
+    - Class: 114
+      Script: {instanceID: 20890}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -200,7 +211,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -228,6 +247,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11218}
     - Class: 114
       Script: {instanceID: 11598}
+    - Class: 114
+      Script: {instanceID: 20890}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -433,7 +454,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: d32607ac5d2d57134d4300dc3861de69
+      Hash: dc854f2391006e88ca2854c8a0e2d3ee
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Card
@@ -571,7 +592,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: ec80a65624031cee9b615d540c58f40e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GlobalHandler
@@ -667,7 +688,7 @@ ScriptsOnlyBuild:
     className: MyTweenScript
   - hash:
       serializedVersion: 2
-      Hash: 72241f876afb9a998399ca7203f5fb0e
+      Hash: a2c8ea7ebba8229f47b64f96ace9046d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ReflexGameHandler
@@ -709,7 +730,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 0b2e08b218efc36abe741db968540185
+      Hash: 55a9325d0e514c61887378e8a9f20fca
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameHandler
@@ -731,6 +752,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: efe117c0bbff66cb2e11efd1d09b2b4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoundManager
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -863,10 +890,15 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 25355dd7e20334da365fb1ca72592355
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: fadeAnimator
   platform: 13
   scenePathNames:
   - Assets/Scenes/IntroScreen.unity
   - Assets/Scenes/LearnANdPLay.unity
-  - Assets/Scenes/HighscoreScene.unity
   - Assets/Scenes/ReflexScene.unity
-  playerPath: C:/test2
+  playerPath: C:/Users/johan/LekoLarv1.0.apk

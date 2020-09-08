@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Onion
   m_EditorClassIdentifier: 
   name: "L\xF6k"
+  nameEnglish: Onion
   animalType: onion
   animalTypeID: 15
   legs: 0

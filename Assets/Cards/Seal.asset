@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Seal
   m_EditorClassIdentifier: 
   name: "S\xE4l"
+  nameEnglish: Seal
   animalType: seal
   animalTypeID: 16
   legs: 0

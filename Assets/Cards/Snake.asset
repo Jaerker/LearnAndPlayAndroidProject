@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Snake
   m_EditorClassIdentifier: 
   name: Orm
+  nameEnglish: Snake
   animalType: snake
   animalTypeID: 20
   legs: 0

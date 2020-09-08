@@ -97,6 +97,7 @@
     <Compile Include="Assets\LeanTween\Framework\LTDescrOptional.cs" />
     <Compile Include="Assets\LeanTween\Framework\LTSeq.cs" />
     <Compile Include="Assets\Scripts\AlphabetScene\AlphabetGameHandler.cs" />
+    <Compile Include="Assets\Scripts\fadeAnimator.cs" />
     <Compile Include="Assets\Scripts\GlobalHandler.cs" />
     <Compile Include="Assets\Scripts\IntroScreen\BouncyScript.cs" />
     <Compile Include="Assets\Scripts\IntroScreen\IntroScript.cs" />

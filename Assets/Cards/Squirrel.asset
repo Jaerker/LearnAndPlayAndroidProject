@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Squirrel
   m_EditorClassIdentifier: 
   name: Ekorre
+  nameEnglish: Squirrel
   animalType: squirrel
   animalTypeID: 22
   legs: 2

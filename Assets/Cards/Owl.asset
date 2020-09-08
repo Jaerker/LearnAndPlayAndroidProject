@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Owl
   m_EditorClassIdentifier: 
   name: Uggla
+  nameEnglish: Owl
   animalType: bird
   animalTypeID: 11
   legs: 2

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Crocodile
   m_EditorClassIdentifier: 
   name: Krokodil
+  nameEnglish: Crocodile
   animalType: reptile
   animalTypeID: 5
   legs: 4

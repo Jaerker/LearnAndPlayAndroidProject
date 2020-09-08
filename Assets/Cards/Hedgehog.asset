@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hedgehog
   m_EditorClassIdentifier: 
   name: Igelkott
+  nameEnglish: Hedgehog
   animalType: hedgehog
   animalTypeID: 10
   legs: 4

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sheep
   m_EditorClassIdentifier: 
   name: "F\xE5r"
+  nameEnglish: Sheep
   animalType: sheep
   animalTypeID: 17
   legs: 4

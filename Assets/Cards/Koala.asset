@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Koala
   m_EditorClassIdentifier: 
   name: Koala
+  nameEnglish: Koala
   animalType: koala
   animalTypeID: 14
   legs: 2

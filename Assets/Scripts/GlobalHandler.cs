@@ -10,7 +10,10 @@ public class GlobalHandler : MonoBehaviour
     //Om spelet startats för första gången eller inte
     public static bool gameRunning = false;
 
-    
+    public string difficulty = "normal";
+
+    public string language = "swedish";
+
 
     // Start is called before the first frame update
     /*
@@ -18,9 +21,9 @@ public class GlobalHandler : MonoBehaviour
     * AudioSource.PlayClipAtPoint(GlobalHandler., GlobalHandler.soundSource);
     */
 
- 
 
- 
+    
+
     void Awake()
     {
         DontDestroyOnLoad(this);

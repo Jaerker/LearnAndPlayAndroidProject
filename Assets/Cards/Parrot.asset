@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Parrot
   m_EditorClassIdentifier: 
   name: Papegoja
+  nameEnglish: Parrot
   animalType: bird
   animalTypeID: 11
   legs: 2

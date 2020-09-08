@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cat3
   m_EditorClassIdentifier: 
   name: Katt
+  nameEnglish: Cat
   animalType: cat
   animalTypeID: 3
   legs: 4

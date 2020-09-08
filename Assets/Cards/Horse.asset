@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Horse
   m_EditorClassIdentifier: 
   name: "H\xE4st"
+  nameEnglish: Horse
   animalType: horse
   animalTypeID: 13
   legs: 4

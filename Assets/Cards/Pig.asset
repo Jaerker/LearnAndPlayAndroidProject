@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pig
   m_EditorClassIdentifier: 
   name: Gris
+  nameEnglish: Pig
   animalType: pig
   animalTypeID: 2
   legs: 4

@@ -23,6 +23,8 @@ public class ReflexGameHandler : MonoBehaviour
     public TextMeshProUGUI finalScoreText;
     private int score;
     private float rightAnswer;
+
+
     //Spel Canvas
     public Canvas gameCanvas;
     public Canvas scoreCanvas;
@@ -32,21 +34,34 @@ public class ReflexGameHandler : MonoBehaviour
     public TextMeshProUGUI countdownText;
     private int countdown = -1;
 
+    //Kopplat till ljud
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
+    public AudioClip regularButtonSound;
+    public AudioClip puzzleSolvedSound;
 
+    //Kopplat till kortet, så det kan vändas snyggt
     public float rotationSpeed;
     private bool flippingTheCard = false;
     private bool animalImageDelay = false;
     Quaternion firstStance;
-    // Start is called before the first frame update
+
     void Start()
     {
 
         StartCoroutine(StartNewGame(1f));
     }
 
-    // Update is called once per frame
+    //Ljud metoden, enkel funktion som tar in ett audioclip bara
+    public void PlaySound(AudioClip ac)
+    {
+        AudioSource.PlayClipAtPoint(ac, Camera.main.transform.position);
+    }
+
+    // I Denna Fixed Update finns delar till att kortet snurras på, mer info inne i metoden
     void  FixedUpdate()
     {
+        //Om Bool flippingTheCard är aktivt, alltså vi vill börja snurra kortet
         if (flippingTheCard)
         {
             cd.transform.Rotate(new Vector3(0f, 10f, 0f), rotationSpeed);
@@ -108,8 +123,10 @@ public class ReflexGameHandler : MonoBehaviour
       
     }
 
-    // Här startas nedräkningen för ett nytt game
-     IEnumerator StartNewGame(float time)
+    /*
+     * Kommer köras tills countdown värdet är nere på 0, då kommer spelet köras igång. 
+     */
+    IEnumerator StartNewGame(float time)
     {
 
         gameCanvas.enabled = false;
@@ -123,15 +140,15 @@ public class ReflexGameHandler : MonoBehaviour
             countdown = 3;
         }
         countdownText.text = countdown.ToString();
-
+        Debug.Log(countdown);
         yield return new WaitForSeconds(time);
 
         countdown -= 1;
-        if(countdown != 0)
+        if (countdown != 0)
         {
             StartCoroutine(StartNewGame(time));
         }
-        if(countdown == 0)
+        else if(countdown == 0)
         {
             //Här startar hela spelet om
             gameCanvas.enabled = true;
@@ -143,6 +160,7 @@ public class ReflexGameHandler : MonoBehaviour
             countdown = -1;
             hasTimeRunOut = false;
         }
+        
         yield break;
 
     }
@@ -182,6 +200,7 @@ public class ReflexGameHandler : MonoBehaviour
         cd.Refresh();
         int randomNumber = Convert.ToInt32(UnityEngine.Random.Range(0f, 3f));
         //Debug.Log(randomNumber.ToString());
+        
         foreach(var bt in buttonText)
         {
             bt.text = "null";
@@ -228,6 +247,14 @@ public class ReflexGameHandler : MonoBehaviour
         {
             //Debug.Log("You found the right choice");
             score++;
+            if(score % 10 == 0)
+            {
+                PlaySound(puzzleSolvedSound);
+            }
+            else
+            {
+                PlaySound(correctSound);
+            }
             
             cd.ps.Play();
             rightAnswer = 1f;
@@ -243,7 +270,7 @@ public class ReflexGameHandler : MonoBehaviour
         }
         else
         {
-            //spela ljud här    
+            PlaySound(wrongSound);
         }
         foreach (var bu in buttons)
         {

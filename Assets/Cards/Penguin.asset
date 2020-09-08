@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Penguin
   m_EditorClassIdentifier: 
   name: Pingvin
+  nameEnglish: Penguin
   animalType: bird
   animalTypeID: 11
   legs: 2

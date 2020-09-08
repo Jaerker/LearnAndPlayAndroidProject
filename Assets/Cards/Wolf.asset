@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wolf
   m_EditorClassIdentifier: 
   name: Varg
+  nameEnglish: Wolf
   animalType: dog
   animalTypeID: 6
   legs: 4

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cow
   m_EditorClassIdentifier: 
   name: Ko
+  nameEnglish: Cow
   animalType: cow
   animalTypeID: 4
   legs: 4

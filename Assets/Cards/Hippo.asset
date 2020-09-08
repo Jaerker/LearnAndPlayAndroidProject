@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hippo
   m_EditorClassIdentifier: 
   name: "Flodh\xE4st"
+  nameEnglish: Hippo
   animalType: hippo
   animalTypeID: 12
   legs: 4

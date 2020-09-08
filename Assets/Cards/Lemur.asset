@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lemur
   m_EditorClassIdentifier: 
   name: Lemur
+  nameEnglish: Lemur
   animalType: ape
   animalTypeID: 0
   legs: 2

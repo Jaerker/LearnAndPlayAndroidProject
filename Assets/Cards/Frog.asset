@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Frog
   m_EditorClassIdentifier: 
   name: Groda
+  nameEnglish: Frog
   animalType: frog
   animalTypeID: 8
   legs: 4

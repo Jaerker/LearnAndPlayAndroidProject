@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fox
   m_EditorClassIdentifier: 
   name: "R\xE4v"
+  nameEnglish: Fox
   animalType: fox
   animalTypeID: 7
   legs: 4

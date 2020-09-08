@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lion
   m_EditorClassIdentifier: 
   name: Lejon
+  nameEnglish: Lion
   animalType: cat
   animalTypeID: 3
   legs: 4

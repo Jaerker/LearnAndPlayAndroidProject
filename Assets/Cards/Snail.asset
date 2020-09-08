@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Snail
   m_EditorClassIdentifier: 
   name: Snigel
+  nameEnglish: Snail
   animalType: snail
   animalTypeID: 19
   legs: 0

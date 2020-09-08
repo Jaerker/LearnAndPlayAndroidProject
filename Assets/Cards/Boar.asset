@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Boar
   m_EditorClassIdentifier: 
   name: Vildsvin
+  nameEnglish: Wild Boar
   animalType: pig
   animalTypeID: 2
   legs: 4
